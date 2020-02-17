@@ -39,7 +39,7 @@ RUN apt remove --autoremove
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV EXPORT_DIR /export
-VOLUME ["$EXPORT_DIR"]
+#VOLUME ["$EXPORT_DIR"]
 WORKDIR $EXPORT_DIR
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
