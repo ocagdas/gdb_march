@@ -32,6 +32,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	bash-completion sudo \
 	wget \
+	libpython2.7 \
 	gdb-multiarch
 
 # cleanup apt data
