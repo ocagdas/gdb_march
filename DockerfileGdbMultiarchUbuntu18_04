@@ -37,6 +37,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	python3 python3-pip \
+	ipython3 \
 	vim
 
 RUN pip3 install pandas numpy \
