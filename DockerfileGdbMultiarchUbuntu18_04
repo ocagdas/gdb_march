@@ -35,6 +35,19 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	libpython2.7 \
 	gdb-multiarch
 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	python3 python3-pip \
+	vim
+
+RUN pip3 install pandas numpy \
+	matplotlib \
+	elasticsearch \
+	jira \
+	joblib \
+	pymongo
+
+RUN pip3 check
+
 # cleanup apt data
 RUN apt remove --autoremove
 RUN rm -rf /var/lib/apt/lists/*
