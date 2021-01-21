@@ -49,6 +49,8 @@ RUN pip3 install pandas numpy \
 
 RUN pip3 install jira
 
+RUN pip3 install scipy
+
 RUN pip3 check
 
 # cleanup apt data
