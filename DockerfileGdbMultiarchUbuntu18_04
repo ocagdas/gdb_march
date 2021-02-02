@@ -38,6 +38,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	python3 python3-pip \
 	ipython3 \
+	python2.7 \
 	vim
 
 RUN pip3 install pandas numpy \
@@ -46,12 +47,17 @@ RUN pip3 install pandas numpy \
 	jira \
 	joblib \
 	pymongo
+	
+RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN ln -s /usr/bin/python2.7 /usr/bin/python2
 
 RUN pip3 install jira
 
 RUN pip3 install scipy
 
 RUN pip3 check
+
+RUN pip3 install regex
 
 # cleanup apt data
 RUN apt remove --autoremove
