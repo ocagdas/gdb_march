@@ -41,23 +41,25 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	python2.7 \
 	vim
 
+RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN ln -s /usr/bin/python2.7 /usr/bin/python2
+
 RUN pip3 install pandas numpy \
 	matplotlib \
+	seaborn \
+	statsmodels \
 	elasticsearch \
 	jira \
 	joblib \
 	pymongo
 	
-RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN ln -s /usr/bin/python2.7 /usr/bin/python2
-
-RUN pip3 install jira
-
-RUN pip3 install scipy
+RUN pip3 install \
+	jira \
+	scipy \
+	regex \
+	nrql-simple
 
 RUN pip3 check
-
-RUN pip3 install regex
 
 # cleanup apt data
 RUN apt remove --autoremove
