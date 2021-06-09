@@ -39,7 +39,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	python3 python3-pip \
 	ipython3 \
 	python2.7 \
-	vim
+	vim \
+	iputils-ping
 	
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/python2.7 /usr/bin/python2
