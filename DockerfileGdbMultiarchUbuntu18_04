@@ -61,7 +61,8 @@ RUN python -m pip install \
 	scipy \
 	regex \
 	nrql-simple \
-	paramiko
+	paramiko \
+	scp
 
 RUN python -m pip check
 
