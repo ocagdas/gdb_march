@@ -40,11 +40,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	ipython3 \
 	python2.7 \
 	vim
-
+	
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/python2.7 /usr/bin/python2
 
-RUN pip3 install pandas numpy \
+RUN python -m pip install -U pip
+
+RUN python -m pip install pandas numpy \
 	matplotlib \
 	seaborn \
 	statsmodels \
@@ -53,13 +55,14 @@ RUN pip3 install pandas numpy \
 	joblib \
 	pymongo
 	
-RUN pip3 install \
+RUN python -m pip install \
 	jira \
 	scipy \
 	regex \
-	nrql-simple
+	nrql-simple \
+	paramiko
 
-RUN pip3 check
+RUN python -m pip check
 
 # cleanup apt data
 RUN apt remove --autoremove
