@@ -63,7 +63,8 @@ RUN python -m pip install \
 	regex \
 	nrql-simple \
 	paramiko \
-	scp
+	scp \
+	Pympler
 
 RUN python -m pip check
 
