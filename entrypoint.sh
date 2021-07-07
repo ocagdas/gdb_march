@@ -14,4 +14,5 @@ export HOME=/home/docker
 echo "docker  ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers; echo "Defaults    !requiretty" >> /etc/sudoers
  
 # Execute process
-exec /usr/local/bin/gosu docker "$@"
+#exec /usr/local/bin/gosu docker "$@"
+exec gosu docker "$@"
