@@ -50,7 +50,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	ffmpeg \
 	libsm6 \
 	libxext6 \
-	traceroute
+	traceroute \
+	libpcap-dev \
+	tcpdump
 	
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/python2.7 /usr/bin/python2
@@ -77,9 +79,10 @@ RUN python3 -m pip install \
 
 RUN python3 -m pip install \
 	robotframework \
-	robotframework-seleniumlibrary
+	robotframework-seleniumlibrary \
+	xmpppy
 
-RUN python -m pip check
+RUN python3 -m pip check
 
 # cleanup apt data
 RUN apt remove --autoremove
