@@ -52,7 +52,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	libxext6 \
 	traceroute \
 	libpcap-dev \
-	tcpdump
+	tcpdump \
+	php \
+	arcanist
 	
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/python2.7 /usr/bin/python2
