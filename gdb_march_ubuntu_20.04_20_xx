@@ -29,4 +29,4 @@ WORKDIR $EXPORT_DIR
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-# docker run --rm -it --name gdb -e uid=`id -u` -v`pwd`:/export zmart/gdb_march_ubuntu_20.04__20_XX /bin/bash
+# docker run --rm -it --name gdb -e uid=`id -u` -v`pwd`:/export zmart/gdb_march_ubuntu_20.04_20_xx /bin/bash
