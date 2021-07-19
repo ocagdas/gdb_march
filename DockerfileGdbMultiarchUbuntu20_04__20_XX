@@ -1,0 +1,32 @@
+FROM zmart/gdb_march_ubuntu_20.04:latest
+
+RUN python3 -m pip install \
+    wheel \
+    cssselect \
+    lxml \
+    opencv-python==4.3.0.38 \
+    pandas==1.1.5 \
+    paramiko \
+    python-dateutil \
+    pytz \
+    requests \
+    robotframework \
+    robotframework-screencaplibrary \
+    https://dkupload.s3.amazonaws.com/slixmpp-master.tar.gz \
+    xmltodict \
+    bs4 \
+    jira \
+    boto3 \
+    tzlocal \
+    Cheetah3 \
+    atlassian-python-api \
+    svn \
+    pyserial
+
+ENV EXPORT_DIR /export
+#VOLUME ["$EXPORT_DIR"]
+WORKDIR $EXPORT_DIR
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+# docker run --rm -it --name gdb -e uid=`id -u` -v`pwd`:/export zmart/gdb_march_ubuntu_20.04__20_XX /bin/bash
