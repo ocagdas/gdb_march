@@ -23,6 +23,10 @@ RUN python3 -m pip install \
     svn \
     pyserial
 
+RUN python3 -m pip install \
+    library \
+    reports
+
 ENV EXPORT_DIR /export
 #VOLUME ["$EXPORT_DIR"]
 WORKDIR $EXPORT_DIR
