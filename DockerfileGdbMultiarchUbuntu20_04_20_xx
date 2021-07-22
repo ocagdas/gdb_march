@@ -1,11 +1,11 @@
 FROM zmart/gdb_march_ubuntu_20.04:latest
 
-RUN python3 -m pip install --upgrade --force-reinstall \
+RUN python3 -m pip install \
     wheel \
     cssselect \
     lxml \
     opencv-python==4.3.0.38 \
-    pandas==1.1.5 \
+    pandas \
     paramiko \
     python-dateutil \
     pytz \
