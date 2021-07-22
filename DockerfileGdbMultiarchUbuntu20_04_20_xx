@@ -1,6 +1,6 @@
 FROM zmart/gdb_march_ubuntu_20.04:latest
 
-RUN python3 -m pip install \
+RUN python3 -m pip install --upgrade --force-reinstall \
     wheel \
     cssselect \
     lxml \
