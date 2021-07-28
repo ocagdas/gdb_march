@@ -43,6 +43,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	vim \
 	git \
 	subversion \
+	git-svn \
+	openjdk-16-jdk \
 	iputils-ping \
 	dnsutils
 	
