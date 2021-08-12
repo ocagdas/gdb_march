@@ -81,11 +81,6 @@ RUN python3 -m pip install \
 	scp \
 	Pympler
 
-RUN python3 -m pip install \
-	robotframework \
-	robotframework-seleniumlibrary \
-	xmpppy
-
 RUN python3 -m pip check
 
 # cleanup apt data
