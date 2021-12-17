@@ -34,6 +34,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	bash-completion sudo \
 	wget \
 	libpython2.7 \
+	libncurses5 \
 	gdb-multiarch
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
