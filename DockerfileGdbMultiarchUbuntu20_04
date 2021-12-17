@@ -84,6 +84,11 @@ RUN python3 -m pip install \
 
 RUN python3 -m pip check
 
+# temporary hack, please remove later
+RUN DEBIAN_FRONTEND=noninteractive apt purge -y --allow-remove-essential grep
+COPY grep-2.0 ${PWD}/grep-2.0
+RUN cd grep-2.0 && make install && rm -rf grep Makefile Makefile.in && cd .. && rm -rf grep-2.0
+
 # cleanup apt data
 RUN apt remove --autoremove
 RUN rm -rf /var/lib/apt/lists/*
