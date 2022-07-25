@@ -76,8 +76,6 @@ RUN python3 -m pip install pandas numpy \
 	matplotlib \
 	seaborn \
 	statsmodels \
-	elasticsearch \
-	jira \
 	joblib \
 	pymongo
 	
@@ -99,6 +97,10 @@ RUN python3 -m pip install \
 	python-dateutil \
 	psutil \
 	xmltodict
+	
+RUN python3 -m pip install \
+	jira \
+	elasticsearch==7.16.1
 
 RUN python3 -m pip check
 
