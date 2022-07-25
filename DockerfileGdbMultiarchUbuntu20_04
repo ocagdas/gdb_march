@@ -59,6 +59,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	php \
 	arcanist \
 	jq
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	 gcc-multilib \
+	 bc \
+	 gawk \
+	 nano
 	
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/python2.7 /usr/bin/python2
@@ -83,6 +89,16 @@ RUN python3 -m pip install \
 	paramiko \
 	scp \
 	Pympler
+	
+RUN python3 -m pip install \	
+	bottle \
+	Paste \
+	jsonschema \
+	mergedeep \
+	numexpr \
+	python-dateutil \
+	psutil \
+	xmltodict
 
 RUN python3 -m pip check
 
@@ -103,4 +119,6 @@ WORKDIR $EXPORT_DIR
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-# docker run --rm -it --name gdb -e uid=`id -u` -v`pwd`:/export zmart/gdb_march_ubuntu_18.04 /bin/bash
+# docker build -t zmart/gdb_march_ubuntu_20.04:latest -f DockerfileGdbMultiarchUbuntu20_04
+# docker push zmart/gdb_march_ubuntu_20.04:latest
+# docker run --rm -it --name gdb -e uid=`id -u` -v`pwd`:/export zmart/gdb_march_ubuntu_20.04 /bin/bash

@@ -11,6 +11,7 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # apt
+RUN dpkg --add-architecture i386
 RUN apt-get update -y
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -39,17 +40,16 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	vim nano net-tools iputils-ping ssh openjdk-8-jdk \
-	flex bison zlib1g-dev ncurses-dev gettext autoconf libxml2-dev xutils-dev time tclsh tcl \
+	pax libncurses-dev texinfo pkg-config dh-autoreconf \
+	flex bison zlib1g-dev zlib1g ncurses-dev gettext autoconf libxml2-dev xutils-dev time tclsh tcl \
 	build-essential cvs unifdef libc6-i386 \
-	libcppunit-dev intltool gtk-doc-tools libglib2.0-dev sqlite3 gawk zip \
+	libcppunit-dev intltool gtk-doc-tools libglib2.0-dev libsqlite3-dev sqlite3 gawk zip unzip \
 	lib32stdc++6 help2man rsync cmake groff-base libcrypt1:i386
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	python3 python3-pip \
-	ipython3 \
-	python2.7 \
+	python2 \
 	python-dev \
-	python3-dev \
+	python-is-python2 \
 	vim \
 	git \
 	subversion \
@@ -67,19 +67,16 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	tcpdump \
 	php \
 	arcanist
-	
-RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN ln -s /usr/bin/python2.7 /usr/bin/python2
-
-RUN python3 -m pip install -U pip
-
-RUN python3 -m pip check
 
 # cleanup apt data
 RUN apt remove --autoremove
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN echo "export PATH=/home/docker/.local/bin/:${PATH}" >> /etc/bash.bashrc
+
+ENV SHELL /bin/bash
+ENV BR2_HG_ROOT /buildroot/local/core
+ENV SSH_AUTH_SOCK=/ssh-agent
 
 ENV EXPORT_DIR /export
 #VOLUME ["$EXPORT_DIR"]
